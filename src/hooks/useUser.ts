@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { IUser } from "../types";
 
-export function useUsersList(userId: number) {
+export function useUser(userId: number) {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState<unknown>();
   const [data, setData] = useState<IUser>();

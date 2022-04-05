@@ -1,10 +1,13 @@
+import { AppProvider } from "./AppProvider";
+import AppDrawer from "./components/AppDrawer";
 import UsersTable from "./components/UsersTable";
 
 function App() {
   return (
-    <div>
+    <AppProvider>
       <UsersTable />
-    </div>
+      <AppDrawer />
+    </AppProvider>
   );
 }
 

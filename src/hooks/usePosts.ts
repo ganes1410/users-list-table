@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { IPost } from "../types";
 
-export function usePosts() {
+export function usePosts(userId: number) {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState<unknown>();
   const [data, setData] = useState<IPost[]>();
@@ -11,7 +11,7 @@ export function usePosts() {
       setLoading(true);
       try {
         const resp = await fetch(
-          "https://jsonplaceholder.typicode.com/posts"
+          `https://jsonplaceholder.typicode.com/posts?userId=${userId}`
         ).then((res) => res.json());
         setData(resp);
       } catch (error) {
@@ -21,6 +21,6 @@ export function usePosts() {
       }
     }
     getData();
-  }, []);
+  }, [userId]);
   return { data, isLoading, error };
 }

@@ -1,7 +1,9 @@
+import UsersTable from "./UsersTable";
+
 function App() {
   return (
     <div>
-      <h1>Hello World</h1>
+      <UsersTable />
     </div>
   );
 }

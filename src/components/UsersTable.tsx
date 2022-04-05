@@ -24,10 +24,10 @@ function UsersTable() {
   const { data, isLoading } = useUsersList();
 
   return (
-    <Box width={0.8}>
+    <Box display="flex" alignItems="center" justifyContent={"center"} mt={6}>
       <MaterialTable
         isLoading={isLoading}
-        title="Users List"
+        title="Users"
         columns={columns}
         data={data ?? []}
         actions={[
@@ -42,7 +42,13 @@ function UsersTable() {
                 View Profile
               </Typography>
             ),
-            onClick: () => {},
+            onClick: (_, data: any) => {
+              const postData = JSON.stringify({
+                type: "profile",
+                userId: data.id,
+              });
+              window.postMessage(postData, window.parent.origin);
+            },
           },
           {
             icon: () => (
@@ -52,7 +58,14 @@ function UsersTable() {
                 View Posts
               </Typography>
             ),
-            onClick: () => {},
+            onClick: (_, data: any) => {
+              const postData = JSON.stringify({
+                type: "posts",
+                userId: data.id,
+              });
+
+              window.postMessage(postData, window.parent.origin);
+            },
           },
         ]}
         options={{
@@ -61,7 +74,7 @@ function UsersTable() {
           sorting: false,
           emptyRowsWhenPaging: false,
           paging: false,
-          tableLayout: "auto",
+          tableWidth: "full",
           actionsColumnIndex: -1,
           actionsCellStyle: { width: "100px", padding: "4px" },
         }}

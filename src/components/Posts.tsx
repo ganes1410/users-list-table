@@ -17,8 +17,13 @@ function Posts({ userId }: { userId: number }) {
     >
       {posts?.map((post) => (
         <Box my={3} key={post.id}>
-          <Typography variant="h6">{post.title}</Typography>
-          <Typography variant="body1">{post.body}</Typography>
+          <Typography variant="h6" style={{ lineHeight: 1.2 }}>
+            {post.title}
+          </Typography>
+          <Box mt={1} />
+          <Typography variant="body1" style={{ lineHeight: 1.4 }}>
+            {post.body}
+          </Typography>
         </Box>
       ))}
     </Card>

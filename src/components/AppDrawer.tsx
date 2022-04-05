@@ -36,7 +36,7 @@ function CurrentTabCompoent({
   currentTab: ISelectedTab;
 }) {
   if (!currentTab) return null;
-
+  console.log({ currentTab, userId });
   return currentTab === "profile" ? (
     <UserProfile userId={userId} />
   ) : (
@@ -48,6 +48,7 @@ function AppDrawer() {
   const classes = useStyles();
   const { selectedTab, selectedUserId, setSelectedTab, setSelectedUserId } =
     useAppContext();
+  console.log({ selectedUserId });
 
   return (
     <>

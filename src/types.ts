@@ -32,6 +32,6 @@ interface IPost {
 }
 
 type ISelectedUserId = number | null;
-type ISelectedTab = "profile" | "post" | null;
+type ISelectedTab = "profile" | "posts" | null;
 
 export type { IUser, IUsersList, IPost, ISelectedUserId, ISelectedTab };

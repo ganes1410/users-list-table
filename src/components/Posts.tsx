@@ -19,7 +19,7 @@ function Posts({ userId }: { userId: number }) {
         <Box my={3} key={post.id}>
           <Typography
             variant="h6"
-            style={{ lineHeight: 1.2, fontWeight: "bold" }}
+            style={{ lineHeight: 1.1, fontWeight: "bold" }}
           >
             {post.title}
           </Typography>

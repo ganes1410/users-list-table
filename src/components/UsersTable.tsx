@@ -21,6 +21,30 @@ const columns: Column<IUser>[] = [
   { title: "Website", field: "website", cellStyle },
 ];
 
+function TableTitle({ title = "" }) {
+  return (
+    <Box
+      display="flex"
+      height={44}
+      alignItems="center"
+      px={3}
+      style={{
+        background: "darkgreen",
+      }}
+    >
+      <Typography
+        variant="body1"
+        style={{
+          color: "white",
+          letterSpacing: 1,
+        }}
+      >
+        {title}
+      </Typography>
+    </Box>
+  );
+}
+
 function UsersTable() {
   const { data, isLoading } = useUsersList();
 
@@ -34,7 +58,14 @@ function UsersTable() {
     >
       <MaterialTable
         isLoading={isLoading}
-        title="Users"
+        components={{
+          Toolbar: () => <TableTitle title="Users" />,
+        }}
+        title={
+          <Box bgcolor="darkgreen" width={1}>
+            <Typography>Users</Typography>
+          </Box>
+        }
         columns={columns}
         data={data ?? []}
         actions={[
@@ -43,7 +74,7 @@ function UsersTable() {
               <Typography
                 variant="body2"
                 style={{
-                  color: "blue",
+                  color: "darkgreen",
                   textDecoration: "underline",
                   cursor: "pointer",
                 }}
@@ -64,7 +95,7 @@ function UsersTable() {
               <Typography
                 variant="body2"
                 style={{
-                  color: "blue",
+                  color: "darkgreen",
                   textDecoration: "underline",
                   cursor: "pointer",
                 }}

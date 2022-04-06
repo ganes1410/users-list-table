@@ -76,6 +76,9 @@ function AppDrawer() {
                   key={sideBarItem.key}
                   style={{
                     height: "50px",
+                    backgroundColor:
+                      selectedTab === sideBarItem.key ? "darkgreen" : "white",
+                    color: selectedTab === sideBarItem.key ? "white" : "black",
                   }}
                   alignItems="center"
                   onClick={() => {
@@ -83,7 +86,9 @@ function AppDrawer() {
                     setSelectedTab(sideBarItem.key as ISelectedTab);
                   }}
                 >
-                  <Typography variant="body1">{sideBarItem.label}</Typography>
+                  <Typography variant="body1" style={{ fontWeight: "bold" }}>
+                    {sideBarItem.label}
+                  </Typography>
                 </ListItem>
               );
             })}

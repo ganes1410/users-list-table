@@ -17,7 +17,7 @@ function Card({
     <Box
       bgcolor={"#fff"}
       border={1}
-      borderColor="lightgray"
+      borderColor="darkgreen"
       borderRadius={8}
       width={300}
       maxHeight={"60vh"}
@@ -31,11 +31,14 @@ function Card({
             display="flex"
             alignItems="center"
             justifyContent="space-between"
-            bgcolor={"lightgray"}
+            bgcolor={"darkgreen"}
+            color="#fff"
             px={2}
             py={1}
           >
-            <Typography variant="h6">{title}</Typography>
+            <Typography variant="h6" style={{ fontWeight: "bold" }}>
+              {title}
+            </Typography>
             <Box
               style={{ cursor: "pointer" }}
               onClick={() => {

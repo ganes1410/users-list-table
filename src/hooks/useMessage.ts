@@ -4,8 +4,7 @@ import useAppContext from "./useAppContext";
 
 // Listener for postMessage events
 export function useMessage() {
-  const { setSelectedTab, setSelectedUserId, selectedTab, selectedUserId } =
-    useAppContext();
+  const { setSelectedTab, setSelectedUserId } = useAppContext();
 
   useEffect(() => {
     function onMessageReceivedFromIframe(event: any) {
@@ -14,12 +13,12 @@ export function useMessage() {
           // Ignore react devtools events
           if (!event.data?.source) {
             const parsedData = JSON.parse(event.data);
-            console.log({ parsedData });
+
             setSelectedUserId(parsedData?.userId);
             setSelectedTab(parsedData?.type as ISelectedTab);
           }
         } catch (error) {
-          console.log("Cannot parse data");
+          console.error("Cannot parse data");
         }
       }
     }

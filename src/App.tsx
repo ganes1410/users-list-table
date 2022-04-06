@@ -1,10 +1,10 @@
-import AppContainer from "./AppContainer";
 import { AppProvider } from "./AppProvider";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <AppProvider>
-      <AppContainer />
+      <Home />
     </AppProvider>
   );
 }

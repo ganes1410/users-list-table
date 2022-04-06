@@ -1,4 +1,3 @@
-import React from "react";
 import { CircularProgress, Box, Typography } from "@material-ui/core";
 
 function Loader({ loaderText = "Please Wait" }) {

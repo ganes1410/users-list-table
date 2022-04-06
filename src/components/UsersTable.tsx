@@ -6,6 +6,7 @@ import { IUser } from "../types";
 const cellStyle = {
   padding: "8px 6px",
   width: "120px",
+  fontSize: "14px",
 };
 
 const columns: Column<IUser>[] = [
@@ -24,7 +25,13 @@ function UsersTable() {
   const { data, isLoading } = useUsersList();
 
   return (
-    <Box display="flex" alignItems="center" justifyContent={"center"} mt={6}>
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent={"center"}
+      mt={6}
+      width={1}
+    >
       <MaterialTable
         isLoading={isLoading}
         title="Users"
@@ -34,9 +41,11 @@ function UsersTable() {
           {
             icon: () => (
               <Typography
+                variant="body2"
                 style={{
                   color: "blue",
                   textDecoration: "underline",
+                  cursor: "pointer",
                 }}
               >
                 View Profile
@@ -53,7 +62,12 @@ function UsersTable() {
           {
             icon: () => (
               <Typography
-                style={{ color: "blue", textDecoration: "underline" }}
+                variant="body2"
+                style={{
+                  color: "blue",
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                }}
               >
                 View Posts
               </Typography>
@@ -76,7 +90,10 @@ function UsersTable() {
           paging: false,
           tableWidth: "full",
           actionsColumnIndex: -1,
-          actionsCellStyle: { width: "100px", padding: "4px" },
+          actionsCellStyle: {
+            width: "100px",
+            padding: "4px",
+          },
         }}
       />
     </Box>

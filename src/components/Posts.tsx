@@ -17,7 +17,10 @@ function Posts({ userId }: { userId: number }) {
     >
       {posts?.map((post) => (
         <Box my={3} key={post.id}>
-          <Typography variant="h6" style={{ lineHeight: 1.2 }}>
+          <Typography
+            variant="h6"
+            style={{ lineHeight: 1.2, fontWeight: "bold" }}
+          >
             {post.title}
           </Typography>
           <Box mt={1} />
